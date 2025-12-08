@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inbox - Priority Sorter</title>
+    <style>
+        /* TODO: Add your CSS styling here */
+        /* Requirements:
+           - High Priority (score > 70): Red background
+           - Low Priority (score < 30): Green background
+           - Make it visually appealing and user-friendly
+        */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Smart Inbox</h1>
+        <p class="subtitle">Priority Email Sorter</p>
+
+        <!-- TODO: Add a button to load and sort emails -->
+        
+        <!-- TODO: Add a container to display status messages (loading, success, error) -->
+        
+        <!-- TODO: Add a container to display the sorted emails -->
+    </div>
+
+    <script>
+        // TODO: Define the API URL (e.g., 'http://localhost:5000/api/inbox/sort')
+        const API_URL = '';
+
+        // Mock email data for testing
+        const mockEmails = [
+            {
+                "sender": "boss@company.com",
+                "subject": "URGENT: Production DB Down",
+                "body": "Please fix this immediately.",
+                "receivedAt": "2023-10-27T10:00:00Z",
+                "isVIP": true
+            },
+            {
+                "sender": "marketing@store.com",
+                "subject": "Weekly Newsletter",
+                "body": "Click here to unsubscribe.",
+                "receivedAt": "2023-10-27T09:00:00Z",
+                "isVIP": false
+            },
+            {
+                "sender": "client@example.com",
+                "subject": "Question about invoice",
+                "body": "Can we meet later?",
+                "receivedAt": "2023-10-26T10:00:00Z",
+                "isVIP": false
+            }
+        ];
+
+        // TODO: Implement the function to load and sort emails
+        // This function should:
+        // 1. Send a POST request to the API_URL with the mockEmails data
+        // 2. Handle the response (sorted emails with PriorityScore)
+        // 3. Display the emails in the UI
+        // 4. Show appropriate status messages (loading, success, error)
+        // 5. Apply visual styling based on priority score (red for > 70, green for < 30)
+        
+        async function loadAndSortEmails() {
+            // TODO: Implement this function
+            throw new Error("Function not implemented");
+        }
+
+        // TODO: Implement a function to display emails in the UI
+        // Should show: Subject, Sender, and Priority Score
+        // Apply color coding based on score
+        
+        function displayEmails(emails) {
+            // TODO: Implement this function
+        }
+
+        // TODO: Add any helper functions you need (e.g., HTML escaping, date formatting)
+    </script>
+</body>
+</html>

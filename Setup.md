@@ -130,17 +130,6 @@ cd server/Tests
 dotnet test
 ```
 
-**Important:** The test file `PriorityScoringServiceTests.cs` contains placeholder tests that need to be implemented. See `ASSESSMENT_GUIDE.md` for detailed instructions on implementing the tests. If they all fail because you have just started, tha tis because you need to impliment the tests, and additional funcitonality. 
-
-## Next Steps
-
-This starter code provides a working foundation. You can now:
-- Review the code structure
-- Add the logic for email priority
-- Build the API to send emails to front end
-- Create the Front End Email list, with sorted emails
-- **Implement the unit tests** (required for submission)
-
-Good Luck
+**Important:** The test file `PriorityScoringServiceTests.cs` contains test method stubs that need to be implemented. See `assessment.md` for detailed requirements.
 
 

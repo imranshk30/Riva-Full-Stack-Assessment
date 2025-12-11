@@ -136,7 +136,14 @@ If your frontend runs on a different port, update the CORS configuration in `ser
 
 Unit tests are located in `server/Tests/`. To run the tests:
 
-Tests are to be implimented. 
+You are to implement a set of tests that will demonstrate your code quality. Your tests should cover:
+
+- **Core functionality**: Test the priority scoring logic with various email scenarios
+- **Edge cases**: Handle boundary conditions, null inputs, and unusual data
+- **Business rules**: Verify that scoring calculations match the requirements
+- **Code coverage**: Aim for comprehensive coverage of your service layer
+
+A dummy test (`TestSetup_ShouldPass`) is included to verify the test infrastructure is working. If this test fails after you add your own tests, you'll know it's something in your code that broke the build.
 
 ```bash
 cd server/Tests

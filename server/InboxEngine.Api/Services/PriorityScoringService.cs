@@ -1,7 +1,9 @@
-using InboxEngine.Models;
+using InboxEngine.Api.Models;
 using Microsoft.OpenApi.Any;
+using System;
+using System.Linq;
 
-namespace InboxEngine.Services;
+namespace InboxEngine.Api.Services;
 
 /// <summary>
 /// TODO: Implement the priority scoring logic according to the requirements:
@@ -22,28 +24,20 @@ public class PriorityScoringService : IPriorityScoringService
     private static readonly string[] UrgencyKeywords = { "urgent", "asap", "error" };
     private static readonly string[] SpamKeywords = { "unsubscribe", "newsletter" };
 
+    // Ensure the method signature exactly matches the interface definition
     public int CalculatePriorityScore(Email email, DateTime nowUtc)
     {
-        // Validate input
         if (email == null)
             throw new ArgumentNullException(nameof(email));
-        // Initialize score
         int score = 0;
 
-        // VIP
         if (email.IsVip)
         {
-            // Add 50 points for VIP
             score += 50;
         }
 
-       
         if (!string.IsNullOrWhiteSpace(email.Subject))
         {
-            // Check for urgency keywords in subject
-            // Case-insensitive
-            // Convert subject to lower case for comparison
-            // Check if any urgency keyword is present
             var subjectLower = email.Subject.ToLowerInvariant();
             if (UrgencyKeywords.Any(s => subjectLower.Contains(s)))
             {
@@ -51,27 +45,21 @@ public class PriorityScoringService : IPriorityScoringService
             }
         }
 
-        // Time decay: older = more urgent
-        // +1 point for every hour passed since ReceivedAt
-      
         var diff = nowUtc - email.ReceivedAt;
-       if(diff.TotalHours>0)
+        if (diff.TotalHours > 0)
         {
             score += (int)diff.TotalHours;
         }
 
-        // Spam filter
-        // -20 points if body contains spam keywords
         if (!string.IsNullOrWhiteSpace(email.Body))
         {
             var bodyLower = email.Body.ToLowerInvariant();
-            if (SpamKeywords.Any(b => bodyLower.Contains(b)) )
+            if (SpamKeywords.Any(b => bodyLower.Contains(b)))
             {
                 score -= 20;
             }
         }
 
-        // Clamp
         if (score > 100) score = 100;
         if (score < 0) score = 0;
 

@@ -1,6 +1,7 @@
-using InboxEngine.Models;
+using InboxEngine.Api.Models;
+using System;
 
-namespace InboxEngine.Services;
+namespace InboxEngine.Api.Services;
 
 public interface IPriorityScoringService
 {
